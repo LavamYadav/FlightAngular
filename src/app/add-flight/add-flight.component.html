@@ -1,0 +1,52 @@
+<h3>Inserting New Flight</h3>
+<div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+        <div [hidden]="submitted" style="width: 400px;">
+            <form [formGroup]="flightsaveform" #saveflight (ngSubmit)="saveFlight(saveFlight)">
+                <div class="form-group">
+                    <label for="name">Flight Model</label>
+                    <input type="text" class="form-control" formControlName="flightModel" data-toggle="tooltip" data-placement="right" title="Enter Flight's Model">
+                    <div class="alert alert-danger" *ngIf="(FlightModel.touched) && (FlightModel.invalid)" style="margin-top: 5px;">
+                        <span *ngIf="FlightModel.errors.required">Flight Model is Required</span>
+                        <span *ngIf="FlightModel.errors.minlength">   
+                        Model length Not Sufficient   
+                    </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Carrier Name</label>
+                    <input type="text" class="form-control" formControlName="carrierName" data-toggle="tooltip" data-placement="right" title="Enter Carrier Name">
+                    <div class="alert alert-danger" *ngIf="(CarrierName.touched) && (CarrierName.invalid)" style="margin-top: 5px;">
+                        <span *ngIf="CarrierName.errors.required">Carrier Name is Required</span>
+                        <span *ngIf="CarrierName.errors.minlength">   
+                        Carrier Name Length Not Sufficient  
+                    </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Seat Capacity</label>
+                    <input type="text" class=" form-control " formControlName="seatCapacity " data-toggle="tooltip " data-placement="right " title="Enter Seat Capacity ">
+                    <div class="alert alert-danger" *ngIf="(SeatCapacity.touched) && (SeatCapacity.invalid)" style="margin-top: 5px;">
+                        <span *ngIf="CarrierName.errors.required">Seat Capacity is Required</span>
+                    </div>
+                </div>
+
+                <button type="submit " class="btn btn-success ">Submit</button>
+            </form>
+        </div>
+    </div>
+    <div class="col-sm-4 "></div>
+</div>
+<div class="row ">
+    <div class="col-sm-4 "></div>
+    <div class="col-sm-4 ">
+        <div [hidden]="!submitted ">
+            <h4>Flight Added SuccessFully!</h4>
+            <button (click)="addFlightForm() " class='btn btn-primary'>Add More Flights</button>
+        </div>
+    </div>
+    <div class="col-sm-4 "></div>
+</div>
